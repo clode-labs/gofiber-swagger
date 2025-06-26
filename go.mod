@@ -1,4 +1,4 @@
-module github.com/clode-labs/gofiber-swagger
+module github.com/clode-labs/gofiber-swagger/v2
 
 go 1.18
 
