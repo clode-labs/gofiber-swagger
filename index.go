@@ -8,7 +8,7 @@ const indexTmpl string = `
     <meta charset="UTF-8">
     <title>{{.Title}}</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
     <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
     {{- if .CustomStyle}}
@@ -50,8 +50,8 @@ const indexTmpl string = `
       </defs>
     </svg>
     <div id="swagger-ui"></div>
-    <script src="./swagger-ui-bundle.js"> </script>
-    <script src="./swagger-ui-standalone-preset.js"> </script>
+    <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js" crossorigin></script>
+    <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js" crossorigin></script>
     <script>
     window.onload = function() {
       config = {{.}};

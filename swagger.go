@@ -3,15 +3,12 @@ package swagger
 import (
 	"fmt"
 	"html/template"
-	"net/http"
 	"path"
 	"strings"
 	"sync"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/utils"
-	swaggerFiles "github.com/swaggo/files/v2"
 	"github.com/swaggo/swag/v2"
 )
 
@@ -34,7 +31,6 @@ func New(config ...Config) fiber.Handler {
 	var (
 		prefix string
 		once   sync.Once
-		fs     = filesystem.New(filesystem.Config{Root: http.FS(swaggerFiles.FS)})
 	)
 
 	return func(c *fiber.Ctx) error {
@@ -70,7 +66,7 @@ func New(config ...Config) fiber.Handler {
 		case "", "/":
 			return c.Redirect(path.Join(prefix, defaultIndex), fiber.StatusMovedPermanently)
 		default:
-			return fs(c)
+			return c.Status(fiber.StatusNotFound).SendString("Not Found")
 		}
 	}
 }
