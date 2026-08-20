@@ -3,7 +3,7 @@ module github.com/clode-labs/gofiber-swagger/v2
 go 1.18
 
 require (
-	github.com/gofiber/fiber/v2 v2.52.6
+	github.com/gofiber/fiber/v2 v2.52.14
 	github.com/swaggo/swag/v2 v2.0.0-rc4
 )
 
